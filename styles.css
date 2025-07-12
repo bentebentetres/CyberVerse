@@ -212,6 +212,75 @@ body {
     transform: translateY(0) scale(0.95);
 }
 
+/* Hamburger styles for mobile */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 10px;
+    z-index: 1100;
+}
+.hamburger {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #00ffff;
+    position: relative;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    background: #00ffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+.hamburger::before {
+    top: -9px;
+}
+.hamburger::after {
+    top: 9px;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    .nav {
+        position: relative;
+    }
+    .nav-link {
+        display: none;
+        width: 100%;
+        background: rgba(0,0,0,0.98);
+        padding: 16px 0;
+        border-bottom: 1px solid #222;
+        text-align: left;
+        z-index: 1000;
+    }
+    .nav.open .nav-link {
+        display: block;
+    }
+    .nav.open .nav-toggle .hamburger {
+        background: transparent;
+    }
+    .nav.open .nav-toggle .hamburger::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    .nav.open .nav-toggle .hamburger::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
+
 /* Scroll Animations */
 .scroll-animate {
     opacity: 0;
@@ -1007,5 +1076,80 @@ html {
     
     .shape {
         display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 8px;
+    }
+    .header .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 8px;
+    }
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    .nav {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .nav-link {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+    .main {
+        margin-top: 60px;
+    }
+    .hero {
+        min-height: unset;
+        padding: 40px 0 20px 0;
+    }
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-description {
+        font-size: 1rem;
+    }
+    .hero-visual {
+        height: 200px;
+    }
+    .hologram-frame {
+        border-width: 1px;
+    }
+    .about-section, .gallery-section, .members-section {
+        padding: 40px 0;
+    }
+    .about-features, .members-grid, .gallery-grid, .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .feature-item, .member-card, .gallery-item {
+        padding: 15px 8px;
+    }
+    .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+    .gallery-grid {
+        max-height: 300px;
+    }
+    .photos-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .footer {
+        padding: 30px 0 10px;
+    }
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    .footer-bottom {
+        padding-top: 10px;
+        font-size: 0.9rem;
     }
 }
